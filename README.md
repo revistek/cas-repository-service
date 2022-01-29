@@ -21,7 +21,7 @@ Effectively, the AEs and CRs mean that a pipeline is broken up into smaller pipe
 
 ## Usage
 
-To see an example usage of the CRS, look at the [integration test](). Overall, the process is very simple:
+To see an example usage of the CRS, look at the [integration test](https://github.com/revistek/cas-repository-service/blob/main/src/test/java/com/revistek/web/resources/TestCasRepositoryServiceResource.java). Overall, the process is very simple:
 
 The CRS-aware AEs need to create a proper protobuf [Message](https://github.com/revistek/cas-repository-service-common/blob/main/src/main/proto/Message.proto) object with the appropriately encased protobuf [Cas](https://github.com/revistek/cas-repository-service-common/blob/main/src/main/proto/Cas.proto) object and call the `/rest/store` endpoint to store the JCas. The AEs should also have logic to decide where in the metadata store to register the JCas. The CRS stores the JCas in its repository in binary form, generates a Cas ID for that JCas, and registers that ID in its metadata store.
 

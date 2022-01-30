@@ -33,6 +33,12 @@ It should be noted that the first CR that kicks everything off should not be a C
 
 Scaling the CRS is very straight-forward. The CRS has four components: the REST endpoints, the repository, the metadata store, and the cache. In this implementation, MongoDB is used for the repository and metadata store. REDIS is used for the cache. Scaling MongoDB and REDIS is beyond the scope of this write up, but there are plenty of resources readily available. The REST endpoints are just web services and can be scaled by standing up multiple instances and using a load balancer.
 
+## Building
+
+Building the CRS is straightforward. Download the package [cas-repository-service-common](https://github.com/revistek/cas-repository-service-common) and build and install it into your local Maven repository (i.e., `mvn clean install`). That package contains stuff needed by both the CRS and CRS-aware components (e.g., protobuf files). Then download and build this package (i.e., `mvn clean install`) to get a war that you can deploy to a web server. The CRS was tested with the Tomcat 10 available in the Eclipse IDE.
+
+To create CRS-aware UIMA components (e.g., AEs and CRs), add the [cas-repository-service-common](https://github.com/revistek/cas-repository-service-common) package as a dependency and construct the component as normal. Then add in the logic to interact with the CRS. Refer to the [integration test](https://github.com/revistek/cas-repository-service/blob/main/src/test/java/com/revistek/web/resources/TestCasRepositoryServiceResource.java) for an example of how to do just that.
+
 ## Example
 
 The following diagram illustrates an example setup with CRS.

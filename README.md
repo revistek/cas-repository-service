@@ -43,7 +43,7 @@ To create CRS-aware UIMA components (e.g., AEs and CRs), add the [cas-repository
 
 The following diagram illustrates an example setup with CRS.
 
-![CRS Diagram](./CRS-diagram.gif)
+![CRS Diagram](./CRS.png)
 
 In this diagram, there are two overall pipelines. The first consists of the AEs making up Pipelines A and B. The second consists of the AEs making up Pipelines A and C. Both of the overall pipelines use the same AEs, so those AEs are broken out into a separate pipeline (i.e., Pipeline A). Pipelines B and C hold the appropriate remaining AEs for their respective pipelines.
 
